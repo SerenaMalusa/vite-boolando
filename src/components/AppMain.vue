@@ -30,6 +30,7 @@
     @use '../styles/partials/mixins' as *;
 
     .container {
+        
         margin-top: calc($grid-spacing * 4);
         margin-bottom: calc($grid-spacing * 4);
         border: 1px solid red;

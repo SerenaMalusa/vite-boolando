@@ -15,7 +15,7 @@ img {
 
 // DEBUG
 .debug {
-    border: 1px solid black;
+    border: 1px solid aqua;
     height: 70%;
     max-height: 300px;
     width: 200px;
@@ -36,5 +36,5 @@ img {
 .col {
     border: 1px solid blue;
     min-height: 500px;
-    width: calc(100% / 3 - $grid-spacing * 2);
+    width: calc(100% / 3 - $grid-spacing);
 }
