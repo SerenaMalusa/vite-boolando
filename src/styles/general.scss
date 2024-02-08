@@ -1,6 +1,21 @@
 @use './partials/_mixins.scss' as *;
 @use './partials/_variables.scss' as *;
 
-h1 {
-    color: blue;
+
+// RESET AND GENERAL RULES
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+}
+
+// DEBUG
+.debug {
+    border: 1px solid black;
+    height: 20px;
+    width: 50px;
 }
