@@ -3,7 +3,12 @@
     export default {
         data () {
             return {
-
+                links: [
+                    'Donna',
+                    'Uomo',
+                    'Bambino'
+                ],
+                icons: [],
             }
         },
     }
@@ -16,16 +21,33 @@
 
        <div class="container">
         
-            <ul class="debug">
+            <ul>
+                <li v-for="link in links">
+                    <a href="#">{{ link  }}</a>
+                </li>
+                <!-- <li class="debug"><a href="#"></a></li>
                 <li class="debug"><a href="#"></a></li>
-                <li class="debug"><a href="#"></a></li>
-                <li class="debug"><a href="#"></a></li>
+                <li class="debug"><a href="#"></a></li> -->
             </ul>
-            <div class="debug">boolando</div>
+            <div>
+                <img src="../assets/img/boolean-logo.png" alt="boolean logo">
+            </div>
             <ul class="debug">
-                <li class="debug"><a href="#"></a></li>
-                <li class="debug"><a href="#"></a></li>
-                <li class="debug"><a href="#"></a></li>
+                <li class="debug">
+                    <a href="#">
+                        <i class="fa-regular fa-user"></i>
+                    </a>
+                </li>
+                <li class="debug">
+                    <a href="#">
+                        <i class="fa-regular fa-heart"></i>
+                    </a>
+                </li>
+                <li class="debug">
+                    <a href="#">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                    </a>
+                </li>
             </ul>
 
        </div>
@@ -49,11 +71,19 @@
         
         .container {
             height: 100%;
+            font-size: 0.8rem;
+            font-weight: 700;
+
             @include d-flex_between_center;
 
             ul {
                 list-style: none;
                 @include d-flex_between_center;
+                gap: 8px;
+            }
+
+            img {
+                height: 25px;
             }
         }
     }
