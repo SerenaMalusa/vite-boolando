@@ -16,6 +16,12 @@ img {
 // DEBUG
 .debug {
     border: 1px solid black;
-    height: 20px;
-    width: 50px;
+    height: 70%;
+    max-height: 40px;
+    width: 200px;
+}
+
+// UTILITIES 
+.container {
+    width: 73%;
 }

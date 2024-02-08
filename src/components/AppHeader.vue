@@ -16,9 +16,17 @@
 
        <div class="container">
         
-            <div class="debug"></div>
-            <div class="debug"></div>
-            <div class="debug"></div>
+            <ul class="debug">
+                <li class="debug"><a href="#"></a></li>
+                <li class="debug"><a href="#"></a></li>
+                <li class="debug"><a href="#"></a></li>
+            </ul>
+            <div class="debug">boolando</div>
+            <ul class="debug">
+                <li class="debug"><a href="#"></a></li>
+                <li class="debug"><a href="#"></a></li>
+                <li class="debug"><a href="#"></a></li>
+            </ul>
 
        </div>
 
@@ -37,7 +45,18 @@
         background-color: $primary-color;
         box-shadow: 1px 5px 9px 0px rgba(158,149,144,1);
 
-        @include d-flex_between_center;
+        color: $tertiary-color;
+        
+        .container {
+            height: 100%;
+            margin: 0 auto;
+            @include d-flex_between_center;
+
+            ul {
+                list-style: none;
+                @include d-flex_between_center;
+            }
+        }
     }
 
 </style>
