@@ -49,7 +49,6 @@
         
         .container {
             height: 100%;
-            margin: 0 auto;
             @include d-flex_between_center;
 
             ul {
