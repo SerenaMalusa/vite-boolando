@@ -1,11 +1,6 @@
 <script>
     
     export default {
-        data () {
-            return {
-                
-            }
-        },
         props: {
             links: Object,
         }
@@ -17,9 +12,9 @@
    
    <section>
 
-       <div class="container">
+       <div class="container p-0">
         
-            <ul class="mb-0">
+            <ul class="m-0 p-0">
                 <li v-for="link in links.categories">
                     <a :href="link.url">{{ link.text }}</a>
                 </li>
@@ -30,7 +25,7 @@
             <div>
                 <img src="../assets/img/boolean-logo.png" alt="boolean logo">
             </div>
-            <ul class="mb-0">
+            <ul class="mb-0 p-0">
                 
                 <li v-for="link in links.userLinks">
                     <a :href="link.url">

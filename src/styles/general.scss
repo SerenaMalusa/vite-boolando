@@ -17,7 +17,13 @@ body {
 }
 
 img {
-    width: 100%;
+    max-width: 100%;
+}
+
+p,
+h1,
+h2 {
+    margin-bottom: 0;
 }
 
 a {
@@ -30,6 +36,10 @@ a {
     border: 1px solid aqua;
     height: 70%;
     max-height: 300px;
-    width: 200px;
+    // width: 200px;
+}
+
+.container {
+    max-width: 65%;
 }
 
