@@ -8,7 +8,7 @@ import * as bootstrap from 'bootstrap'
 import { library } from '@fortawesome/fontawesome-svg-core';
 /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-/* import specific icons */
+/* import specific icons CMQ NON FUNZIONA CON ALL*/
 import { faBagShopping } from '@fortawesome/free-solid-svg-icons';
 import { faUser, faHeart } from '@fortawesome/free-regular-svg-icons';
 /* add icons to the library */

@@ -1,18 +1,41 @@
 <script>
-    //  QUEASTI NON FUNZIONANO
-    // import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-    // import { faBagShopping } from '@fortawesome/free-solid-svg-icons';
-    // import { faUser, faHeart } from '@fortawesome/free-regular-svg-icons';
-
+    
     export default {
         data () {
             return {
-                links: [
-                    'Donna',
-                    'Uomo',
-                    'Bambino'
-                ],
-                icons: [],
+                links: {
+                    categories: [
+                        {
+                            text: 'Donna',
+                            url: '#',
+                        },
+                        {
+                            text: 'Uomo',
+                            url: '#',
+                        },
+                        {
+                            text: 'Bambino',
+                            url: '#',
+                        },
+                    ],
+                    userLinks: [
+                        {
+                            icon: 'fa-user',
+                            iconKit: 'fa-regular',
+                            url: '#',
+                        },
+                        {
+                            icon: 'fa-heart',
+                            iconKit: 'fa-regular',
+                            url: '#',
+                        },
+                        {
+                            icon: 'fa-bag-shopping',
+                            iconKit: 'fa-solid',
+                            url: '#',
+                        },
+                    ],
+                },
             }
         },
     };
@@ -25,9 +48,9 @@
 
        <div class="container">
         
-            <ul>
-                <li v-for="link in links">
-                    <a href="#">{{ link  }}</a>
+            <ul class="mb-0">
+                <li v-for="link in links.categories">
+                    <a :href="link.url">{{ link.text }}</a>
                 </li>
                 <!-- <li class="debug"><a href="#"></a></li>
                 <li class="debug"><a href="#"></a></li>
@@ -36,14 +59,20 @@
             <div>
                 <img src="../assets/img/boolean-logo.png" alt="boolean logo">
             </div>
-            <ul class="debug">
-                <li class="debug">
-                    <a href="#">
-                        <!-- <i class="fa-regular fa-user"></i> -->
-                        <!--QUESTA NON FUNZIONA <font-awesome-icon icon="user" /> -->
-                        <font-awesome-icon icon="fa-regular fa-user" />
+            <ul class="mb-0">
+                
+                <li v-for="link in links.userLinks">
+                    <a :href="link.url">
+                        <font-awesome-icon :icon="link.icon + ' ' + link.iconKit" />
                     </a>
                 </li>
+
+
+                <!-- <li class="debug">
+                    <a href="#"> -->
+                        <!-- <i class="fa-regular fa-user"></i> -->
+                        <!-- <font-awesome-icon icon="fa-regular fa-user" />                    </a> -->
+                <!-- </li>
                 <li class="debug">
                     <a href="#">
                         <font-awesome-icon icon="fa-regular fa-heart" />
@@ -53,7 +82,7 @@
                     <a href="#">
                         <font-awesome-icon icon="fa-solid fa-bag-shopping" />
                     </a>
-                </li>
+                </li> -->
             </ul>
 
        </div>
