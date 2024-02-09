@@ -3,9 +3,115 @@
     export default {
         data () {
             return {
-                
+                cards: [
+                        {
+                            id: 1,
+                            frontImage: '1.webp',
+                            backImage: '1b.webp',
+                            brand: "Levi's",
+                            name: 'Relaxed Fit Unisex',
+                            price: 29.99,
+                            isInFavorites: true,
+                            badges: [
+                            {
+                                type: 'tag',
+                                value: 'Sostenibilità',
+                            },
+                            {
+                                type: 'discount',
+                                value: '-50%',
+                            },
+                            ],
+                        },
+                        {
+                            id: 2,
+                            frontImage: '2.webp',
+                            backImage: '2b.webp',
+                            brand: 'Guess',
+                            name: 'Roses Tee',
+                            price: 20.99,
+                            isInFavorites: true,
+                            badges: [
+                            {
+                                type: 'discount',
+                                value: '-30%',
+                            },
+                            ],
+                        },
+                        {
+                            id: 3,
+                            frontImage: '3.webp',
+                            backImage: '3b.webp',
+                            brand: 'Come Zucchero Filato',
+                            name: 'Voglia di colori pastello',
+                            price: 129.99,
+                            isInFavorites: false,
+                            badges: [
+                            {
+                                type: 'discount',
+                                value: '-30%',
+                            },
+                            ],
+                        },
+                        {
+                            id: 4,
+                            frontImage: '4.webp',
+                            backImage: '4b.webp',
+                            brand: "Levi's",
+                            name: 'Tee Unisex',
+                            price: 14.99,
+                            isInFavorites: false,
+                            badges: [
+                            {
+                                type: 'tag',
+                                value: 'Sostenibilità',
+                            },
+                            {
+                                type: 'discount',
+                                value: '-50%',
+                            },
+                            ],
+                        },
+                        {
+                            id: 5,
+                            frontImage: '5.webp',
+                            backImage: '5b.webp',
+                            brand: 'Maya Deluxe',
+                            name: 'Stripe Bodice',
+                            price: 99.99,
+                            isInFavorites: true,
+                            badges: [
+                            {
+                                type: 'tag',
+                                value: 'Sostenibilità',
+                            },
+                            {
+                                type: 'discount',
+                                value: '-50%',
+                            },
+                            ],
+                        },
+                        {
+                            id: 6,
+                            frontImage: '6.webp',
+                            backImage: '6b.webp',
+                            brand: 'Esprit',
+                            name: 'Maglione - Black',
+                            price: 29.99,
+                            isInFavorites: true,
+                            badges: [
+                            {
+                                type: 'tag',
+                                value: 'Sostenibilità',
+                            },
+                            ],
+                        },
+                        ],
             }
         },
+        methods: {
+
+        }
     }
 
 </script>
@@ -15,7 +121,31 @@
     <div class="container">
         <div class="row justify-content-between align-items-center">
 
-            <div class="card p-0">
+            <div v-for="card in cards" class="card p-0">
+            
+                <img src="../assets/img/1.webp" alt="product picture" class="card__img img-fixed">
+                <img src="./img/1b.webp" alt="product zoom" class="d-none card__img img-hover">
+            
+                <div class="card__info py-1">
+                    <p class="product_brand">{{ card.brand }}</p>
+                    <h2 class="product_name">{{ card.name }}</h2>
+                    <span class="product_price_sale text-danger fw-bold">{{ card.price }}</span>
+                    <span class="product_price_full text-decoration-line-through">{{ card.price }}</span>
+                </div>
+
+                <div :class="(card.isInFavorites) ? 'text-danger' : ' '" class="card__heart">
+                    <font-awesome-icon icon="fa-solid fa-heart" />
+                </div>
+
+                <div class="card__tags">
+                    <span v-if="card.badges[0].type == 'discount'" class="card__tag discount d-50">{{ card.badges[0].value }}</span>
+                    <!-- <span v-else class="card__tag discount d-50">{{ card.badges[1].value }}</span> -->
+                    <span class="card__tag category sustainable">sustainable</span>
+                </div>     
+
+            </div>
+
+            <!-- <div class="card p-0">
 
                 <img src="../assets/img/1.webp" alt="product picture" class="card__img img-fixed">
                 <img src="./img/1b.webp" alt="product zoom" class="d-none card__img img-hover">
@@ -36,125 +166,8 @@
                     <span class="card__tag category sustainable">sustainable</span>
                 </div>        
 
-            </div>
-
-            <div class="col-4 card p-0">
-
-<img src="../assets/img/1.webp" alt="product picture" class="card__img img-fixed">
-<img src="./img/1b.webp" alt="product zoom" class="d-none card__img img-hover">
-
-<div class="card__info py-1">
-    <p class="product_brand">Levi's</p>
-    <h2 class="product_name">Relaxed fit tee unisex</h2>
-    <span class="product_price_sale text-danger fw-bold">14,99€</span>
-    <span class="product_price_full text-decoration-line-through">29,99€</span>
-</div>
-
-<div class="card__heart">
-    <font-awesome-icon icon="fa-solid fa-heart" />
-</div>
-
-<div class="card__tags">
-    <span class="card__tag discount d-50">-50%</span>
-    <span class="card__tag category sustainable">sustainable</span>
-</div>        
-
-</div>
-<div class="col-4 card p-0">
-
-<img src="../assets/img/1.webp" alt="product picture" class="card__img img-fixed">
-<img src="./img/1b.webp" alt="product zoom" class="d-none card__img img-hover">
-
-<div class="card__info py-1">
-    <p class="product_brand">Levi's</p>
-    <h2 class="product_name">Relaxed fit tee unisex</h2>
-    <span class="product_price_sale text-danger fw-bold">14,99€</span>
-    <span class="product_price_full text-decoration-line-through">29,99€</span>
-</div>
-
-<div class="card__heart">
-    <font-awesome-icon icon="fa-solid fa-heart" />
-</div>
-
-<div class="card__tags">
-    <span class="card__tag discount d-50">-50%</span>
-    <span class="card__tag category sustainable">sustainable</span>
-</div>        
-
-</div>
-<div class="col-4 card p-0">
-
-<img src="../assets/img/1.webp" alt="product picture" class="card__img img-fixed">
-<img src="./img/1b.webp" alt="product zoom" class="d-none card__img img-hover">
-
-<div class="card__info py-1">
-    <p class="product_brand">Levi's</p>
-    <h2 class="product_name">Relaxed fit tee unisex</h2>
-    <span class="product_price_sale text-danger fw-bold">14,99€</span>
-    <span class="product_price_full text-decoration-line-through">29,99€</span>
-</div>
-
-<div class="card__heart">
-    <font-awesome-icon icon="fa-solid fa-heart" />
-</div>
-
-<div class="card__tags">
-    <span class="card__tag discount d-50">-50%</span>
-    <span class="card__tag category sustainable">sustainable</span>
-</div>        
-
-</div>
-<div class="col-4 card p-0">
-
-<img src="../assets/img/1.webp" alt="product picture" class="card__img img-fixed">
-<img src="./img/1b.webp" alt="product zoom" class="d-none card__img img-hover">
-
-<div class="card__info py-1">
-    <p class="product_brand">Levi's</p>
-    <h2 class="product_name">Relaxed fit tee unisex</h2>
-    <span class="product_price_sale text-danger fw-bold">14,99€</span>
-    <span class="product_price_full text-decoration-line-through">29,99€</span>
-</div>
-
-<div class="card__heart">
-    <font-awesome-icon icon="fa-solid fa-heart" />
-</div>
-
-<div class="card__tags">
-    <span class="card__tag discount d-50">-50%</span>
-    <span class="card__tag category sustainable">sustainable</span>
-</div>        
-
-</div>
-<div class="col-4 card p-0">
-
-<img src="../assets/img/1.webp" alt="product picture" class="card__img img-fixed">
-<img src="./img/1b.webp" alt="product zoom" class="d-none card__img img-hover">
-
-<div class="card__info py-1">
-    <p class="product_brand">Levi's</p>
-    <h2 class="product_name">Relaxed fit tee unisex</h2>
-    <span class="product_price_sale text-danger fw-bold">14,99€</span>
-    <span class="product_price_full text-decoration-line-through">29,99€</span>
-</div>
-
-<div class="card__heart">
-    <font-awesome-icon icon="fa-solid fa-heart" />
-</div>
-
-<div class="card__tags">
-    <span class="card__tag discount d-50">-50%</span>
-    <span class="card__tag category sustainable">sustainable</span>
-</div>        
-
-</div>
+            </div> -->
             
-            
-            <!-- <div class="col-3 card debug"></div>
-            <div class="col-3 card debug"></div>
-            <div class="col-3 card debug"></div>
-            <div class="col-3 card debug"></div>
-            <div class="col-3 card debug"></div> -->
         </div>
     </div>
 
