@@ -14,12 +14,12 @@
    
     <div class="container">
         <div class="row">
-            <div class="col debug"></div>
-            <div class="col debug"></div>
-            <div class="col debug"></div>
-            <div class="col debug"></div>
-            <div class="col debug"></div>
-            <div class="col debug"></div>
+            <div class="card debug"></div>
+            <div class="card debug"></div>
+            <div class="card debug"></div>
+            <div class="card debug"></div>
+            <div class="card debug"></div>
+            <div class="card debug"></div>
         </div>
     </div>
 
@@ -34,6 +34,7 @@
         margin-top: calc($grid-spacing * 4);
         margin-bottom: calc($grid-spacing * 4);
         border: 1px solid red;
+        height: 500px;
 
         .row {
             height: 100%;

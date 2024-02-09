@@ -23,5 +23,5 @@ Iterate sull'array di prodotti e per ognuno di essi create un componente Card, i
 ### Bonus
 Facciamo in modo che il cuore nella card del prodotto sia colorato o vuoto a seconda del valore della proprietà "isInFavourites".
 
-###Bonus 2
+### Bonus 2
 Spostate i menu dinamici dai componenti AppHeader e AppFooter al componente App. Inviateglieli poi tramite props.

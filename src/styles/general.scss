@@ -1,6 +1,9 @@
 @use './partials/_mixins.scss' as *;
 @use './partials/_variables.scss' as *;
 
+// Import of Bootstrap's CSS
+@import "bootstrap/scss/bootstrap";
+
 
 // RESET AND GENERAL RULES
 * {
@@ -30,20 +33,3 @@ a {
     width: 200px;
 }
 
-// UTILITIES 
-.container {
-    margin: 0 auto;
-    width: 73%;
-}
-
-// GRID 
-.row {
-    @include d-flex_between_center;
-    gap: $grid-spacing;
-}
-
-.col {
-    border: 1px solid blue;
-    min-height: 500px;
-    width: calc(100% / 3 - $grid-spacing);
-}
