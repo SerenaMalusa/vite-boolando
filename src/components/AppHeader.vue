@@ -1,4 +1,8 @@
 <script>
+    //  QUEASTI NON FUNZIONANO
+    // import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+    // import { faBagShopping } from '@fortawesome/free-solid-svg-icons';
+    // import { faUser, faHeart } from '@fortawesome/free-regular-svg-icons';
 
     export default {
         data () {
@@ -11,7 +15,7 @@
                 icons: [],
             }
         },
-    }
+    };
 
 </script>
 
@@ -35,17 +39,19 @@
             <ul class="debug">
                 <li class="debug">
                     <a href="#">
-                        <i class="fa-regular fa-user"></i>
+                        <!-- <i class="fa-regular fa-user"></i> -->
+                        <!--QUESTA NON FUNZIONA <font-awesome-icon icon="user" /> -->
+                        <font-awesome-icon icon="fa-regular fa-user" />
                     </a>
                 </li>
                 <li class="debug">
                     <a href="#">
-                        <i class="fa-regular fa-heart"></i>
+                        <font-awesome-icon icon="fa-regular fa-heart" />
                     </a>
                 </li>
                 <li class="debug">
                     <a href="#">
-                        <i class="fa-solid fa-bag-shopping"></i>
+                        <font-awesome-icon icon="fa-solid fa-bag-shopping" />
                     </a>
                 </li>
             </ul>
