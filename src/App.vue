@@ -5,13 +5,52 @@
 
 
   export default {
+    data() {
+      return {
+        links: {
+            categories: [
+                {
+                    text: 'Donna',
+                    url: '#',
+                },
+                {
+                    text: 'Uomo',
+                    url: '#',
+                },
+                {
+                    text: 'Bambino',
+                    url: '#',
+                },
+            ],
+            userLinks: [
+                {
+                    icon: 'fa-user',
+                    iconKit: 'fa-regular',
+                    url: '#',
+                },
+                {
+                    icon: 'fa-heart',
+                    iconKit: 'fa-regular',
+                    url: '#',
+                },
+                {
+                    icon: 'fa-bag-shopping',
+                    iconKit: 'fa-solid',
+                    url: '#',
+                },
+            ],
+        },
+      }
+    },
+
     components: { AppHeader, AppMain, AppFooter },
   }
+  
 </script>
 
 <template>
    
-   <app-header />
+   <app-header :links="links"/>
 
    <app-main />
 
