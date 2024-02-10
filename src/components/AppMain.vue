@@ -147,6 +147,10 @@
                 this.activeIndex = 0;
                 this.isOnOver = false;
             },
+
+            toggleToFavourites(card) {
+                card.isInFavorites = !card.isInFavorites;
+            },
         }
     }
 
@@ -177,7 +181,10 @@
                     <span class="product_price_sale text-danger fw-bold">{{ card.price }}</span>
                 </div>
 
-                <div :class="(card.isInFavorites) ? 'text-danger' : ' '" class="card__heart">
+                <div 
+                :class="(card.isInFavorites) ? 'text-danger' : ' '" 
+                @click="toggleToFavourites(card)"
+                class="card__heart">
                     <font-awesome-icon icon="fa-solid fa-heart" />
                 </div>
 
