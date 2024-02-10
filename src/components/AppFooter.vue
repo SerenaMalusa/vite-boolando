@@ -29,9 +29,9 @@
                     <ul class="nav__list m-0 p-0">
                         <li v-for="link in lists.informations.links">
                             <a href="#" class="nav__link">{{ link.text }}</a>
-                        </li> -->
+                        </li>
 
-                        <!-- <li class="nav__element">
+                        <li class="nav__element">
                             <a href="#" class="nav__link">{{ links.informations.links[0].text}}</a>
                         </li>
                         <li class="nav__element"> 
@@ -39,8 +39,12 @@
                         </li>
                         <li class="nav__element">
                             <a href="#" class="nav__link">Diritto di recesso</a>
-                        </li> -->
-                    <!-- </ul> -->
+                        </li>
+                    </ul> -->
+            </nav>
+
+            <nav class="footer__nav right">
+                <list :listObj="lists.social" />
             </nav>
 
         </div>
@@ -60,11 +64,12 @@
         height: calc($header-h * 1.5);
 
         .container {
+            padding: 0;
             height: 100%;
-            @include d-flex_between_center;
             color: $tertiary-color;
             font-size: 0.8rem;
-
+            
+            @include d-flex_between_center;
         }
     }
 

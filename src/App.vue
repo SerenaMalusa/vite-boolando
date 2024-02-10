@@ -42,20 +42,59 @@
             informations: {
               title: 'Boolando s.r.l',
               links: [
-                {
-                  text: 'Inofmazioni legali',
+                { 
+                  type: 'string',
+                  text: 'Informazioni legali',
                   url: '#',
                 },
                 {
+                  type: 'string',
                   text: 'Informativa sulla privacy',
                   url: '#',
                 },
                 {
+                  type: 'string',
                   text: 'Diritto di recesso',
                   url: '#',
                 },
               ]
             },
+            social: {
+              title: 'Trovaci anche su',
+              links: [
+                {
+                  type: 'icon',
+                  icon: 'fa-twitter',
+                  iconKit: 'fa-brands',
+                  url: '#',
+                },
+                {
+                  type: 'icon',
+                  icon: 'fa-square-facebook',
+                  iconKit: 'fa-brands',
+                  url: '#',
+                },
+                {
+                  type: 'icon',
+                  icon: 'fa-square-instagram',
+                  iconKit: 'fa-brands',
+                  url: '#',
+                },
+                {
+                  type: 'icon',
+                  icon: 'fa-square-pinterest',
+                  iconKit: 'fa-brands',
+                  url: '#',
+                },
+                {
+                  type: 'icon',
+                  icon: 'fa-square-youtube',
+                  iconKit: 'fa-brands',
+                  url: '#',
+                },
+                
+              ]
+            }
         },
       }
     },

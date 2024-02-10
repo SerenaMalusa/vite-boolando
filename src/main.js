@@ -9,10 +9,11 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 /* import specific icons CMQ NON FUNZIONA CON ALL*/
-import { faBagShopping, faHeart as faPippo } from '@fortawesome/free-solid-svg-icons';
+import { faBagShopping, faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons';
 import { faUser, faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faTwitter, faSquareFacebook, faSquareInstagram, faSquarePinterest, faSquareYoutube } from '@fortawesome/free-brands-svg-icons';
 /* add icons to the library */
-library.add(faUser, faHeart, faBagShopping, faPippo);
+library.add(faUser, faHeart, faBagShopping, faHeartSolid, faTwitter, faSquareFacebook, faSquareInstagram, faSquarePinterest, faSquareYoutube );
 
 const app = createApp(App);
 app.component('font-awesome-icon', FontAwesomeIcon);

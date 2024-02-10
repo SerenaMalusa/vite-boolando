@@ -13,7 +13,13 @@
     <h3>{{ listObj.title }}</h3>
     <ul class="m-0 p-0">
         <li v-for="link in listObj.links">
-            <a :href="link.url" class="nav__link">{{ link.text }}</a>
+            
+            <a v-if="link.type == 'string'" :href="link.url" class="nav__link">{{ link.text }}</a>
+            
+            <a v-else-if="link.type == 'icon'" :href="link.url">
+                <font-awesome-icon :icon="link.icon + ' ' + link.iconKit" />
+            </a>
+            
         </li>
     </ul>
 
