@@ -126,26 +126,41 @@
                 <img src="../assets/img/1.webp" alt="product picture" class="card__img img-fixed">
                 <img src="./img/1b.webp" alt="product zoom" class="d-none card__img img-hover">
             
-                <div class="card__info py-1">
+                <div v-if="card.badges.at(-1).type == 'discount'" class="card__info py-1">
+                    <p class="product_brand">{{ card.brand }}</p>
+                    <h2 class="product_name">{{ card.name }}</h2>
+                    <span class="product_price_sale text-danger fw-bold">{{ card.badges.at(-1).value }}</span>
+                    <span class="product_price_full text-decoration-line-through">{{ card.price }}</span>
+                </div>
+
+                <div v-else class="card__info py-1">
                     <p class="product_brand">{{ card.brand }}</p>
                     <h2 class="product_name">{{ card.name }}</h2>
                     <span class="product_price_sale text-danger fw-bold">{{ card.price }}</span>
-                    <span class="product_price_full text-decoration-line-through">{{ card.price }}</span>
                 </div>
 
                 <div :class="(card.isInFavorites) ? 'text-danger' : ' '" class="card__heart">
                     <font-awesome-icon icon="fa-solid fa-heart" />
                 </div>
 
-                <div class="card__tags">
-                    <span v-if="card.badges[0].type == 'discount'" class="card__tag discount d-50">{{ card.badges[0].value }}</span>
-                    <!-- <span v-else class="card__tag discount d-50">{{ card.badges[1].value }}</span> -->
-                    <span class="card__tag category sustainable">sustainable</span>
-                </div>     
+                <div v-if="card.badges.length > 1 && card.badges[0].type !== 'discount'" class="card__tags">
+                    <span  class="card__tag discount d-50 me-1">{{ card.badges.at(-1).value }}</span>
+                    <span class="card__tag category sustainable">{{ card.badges[0].value }}</span>
+                </div>
+
+                <div v-else-if="card.badges.length == 1 && card.badges[0].type == 'discount'" class="card__tags">
+                    <span  class="card__tag discount d-50">{{ card.badges[0].value }}</span>
+                </div>                  
+
+                <div v-else-if="card.badges.length == 1 && card.badges[0].type == 'tag'" class="card__tags">
+                    <span class="card__tag category sustainable">{{ card.badges[0].value }}</span>
+                </div>
 
             </div>
 
-            <!-- <div class="card p-0">
+            <!--
+                
+                <div class="card p-0">
 
                 <img src="../assets/img/1.webp" alt="product picture" class="card__img img-fixed">
                 <img src="./img/1b.webp" alt="product zoom" class="d-none card__img img-hover">
