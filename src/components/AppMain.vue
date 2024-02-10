@@ -110,7 +110,20 @@
             }
         },
         methods: {
+            getDiscountPerc(value) {
+                const valueNum = parseInt(value.substr(1,2));
+                if(isNaN(valueNum)) {
+                    valueNum = 0;
+                }
+                return valueNum;
+            },
 
+            getDiscountedPrice(fullPrice,data) {
+                const discountPerc = this.getDiscountPerc(data);
+                const discount = fullPrice * discountPerc / 100;
+                const finalPrice = fullPrice - discount;
+                return finalPrice.toFixed(2);
+            },
         }
     }
 
@@ -129,7 +142,7 @@
                 <div v-if="card.badges.at(-1).type == 'discount'" class="card__info py-1">
                     <p class="product_brand">{{ card.brand }}</p>
                     <h2 class="product_name">{{ card.name }}</h2>
-                    <span class="product_price_sale text-danger fw-bold">{{ card.badges.at(-1).value }}</span>
+                    <span class="product_price_sale text-danger fw-bold me-1">{{ getDiscountedPrice(card.price, card.badges.at(-1).value) }}</span>
                     <span class="product_price_full text-decoration-line-through">{{ card.price }}</span>
                 </div>
 
