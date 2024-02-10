@@ -207,63 +207,7 @@
             height: 100%;
             flex-wrap: wrap;
             gap: $grid-spacing;
-
-            .card {
-                width: calc(100% / 3 - $grid-spacing);
-                position: relative;
-                font-size: 0.8rem;
-
-                .product_name {
-                    text-transform: uppercase;
-                    font-size: 0.9rem;
-                }
-
-                .card__heart {
-                    padding: 2.5px;
-                    background-color: white;
-                    aspect-ratio: 1;
-                    height: $heart-h;
-                    text-align: center;
-                    font-size: 1.3rem;
-
-                    position: absolute;
-                    right: 0;
-                    top: 8px;
-
-                    &:hover {
-                        cursor: pointer;
-                    }
-
-                }
-
-                .card__tags {
-                        position: absolute;
-                        bottom: 100px;
-
-                        .card__tag {
-                            display: inline-block;
-                            padding: 4px 8px;
-                            color: white;
-                            font-size: 0.7rem;
-                            font-weight: bold;
-
-                            &.discount {
-                                background-color: red;
-                            }
-
-                            &.category {
-                                background-color: green;
-                            }
-
-                        }
-
-                }
-
-
-            }
-
-        }
-        
+        }        
     }
 
 </style>
