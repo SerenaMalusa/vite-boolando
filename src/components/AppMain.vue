@@ -124,6 +124,11 @@
                 const finalPrice = fullPrice - discount;
                 return finalPrice.toFixed(2);
             },
+
+            getImgPath(imgName) {
+                const url = new URL ( '../assets/img/'+ imgName , import.meta.url);
+                return url;
+            },
         }
     }
 
@@ -136,8 +141,8 @@
 
             <div v-for="card in cards" class="card p-0">
             
-                <img src="../assets/img/1.webp" alt="product picture" class="card__img img-fixed">
-                <img src="./img/1b.webp" alt="product zoom" class="d-none card__img img-hover">
+                <img :src="getImgPath(card.frontImage)" alt="product picture" class="card__img img-fixed">
+                <img :src="getImgPath(card.backImage)" alt="product zoom" class="d-none card__img img-hover">
             
                 <div v-if="card.badges.at(-1).type == 'discount'" class="card__info py-1">
                     <p class="product_brand">{{ card.brand }}</p>
