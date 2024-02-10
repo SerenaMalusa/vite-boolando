@@ -2,7 +2,7 @@
     
     export default {
         props: {
-            links: Object,
+            lists: Object,
         }
     };
 
@@ -15,7 +15,7 @@
        <div class="container p-0">
         
             <ul class="m-0 p-0">
-                <li v-for="link in links.categories">
+                <li v-for="link in lists.categories">
                     <a :href="link.url">{{ link.text }}</a>
                 </li>
                 <!-- <li class="debug"><a href="#"></a></li>
@@ -27,7 +27,7 @@
             </div>
             <ul class="mb-0 p-0">
                 
-                <li v-for="link in links.userLinks">
+                <li v-for="link in lists.userLinks">
                     <a :href="link.url">
                         <font-awesome-icon :icon="link.icon + ' ' + link.iconKit" />
                     </a>

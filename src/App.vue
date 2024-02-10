@@ -7,7 +7,7 @@
   export default {
     data() {
       return {
-        links: {
+        lists: {
             categories: [
                 {
                     text: 'Donna',
@@ -39,6 +39,23 @@
                     url: '#',
                 },
             ],
+            informations: {
+              title: 'Boolando s.r.l',
+              links: [
+                {
+                  text: 'Inofmazioni legali',
+                  url: '#',
+                },
+                {
+                  text: 'Informativa sulla privacy',
+                  url: '#',
+                },
+                {
+                  text: 'Diritto di recesso',
+                  url: '#',
+                },
+              ]
+            },
         },
       }
     },
@@ -50,11 +67,11 @@
 
 <template>
    
-   <app-header :links="links"/>
+   <app-header :lists="lists"/>
 
    <app-main />
 
-   <app-footer />
+   <app-footer :lists="lists"/>
 
 </template>
 
