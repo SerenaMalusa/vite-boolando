@@ -107,7 +107,15 @@
                             ],
                         },
                         ],
+                activeIndex: 0,
+                isOnOver: false,
             }
+        },
+        computed: {
+            activeCard() {
+                return this.cards[this.activeIndex];
+            },
+
         },
         methods: {
             getDiscountPerc(value) {
@@ -129,6 +137,16 @@
                 const url = new URL ( '../assets/img/'+ imgName , import.meta.url);
                 return url;
             },
+
+            swapImgs(index) {
+                this.activeIndex = index;
+                this.isOnOver = true;
+            },
+
+            swapImgsBack(index) {
+                this.activeIndex = 0;
+                this.isOnOver = false;
+            },
         }
     }
 
@@ -139,10 +157,12 @@
     <div class="container">
         <div class="row justify-content-between align-items-center">
 
-            <div v-for="card in cards" class="card p-0">
+            <div v-for="(card,i) in cards" class="card p-0">
             
-                <img :src="getImgPath(card.frontImage)" alt="product picture" class="card__img img-fixed">
-                <img :src="getImgPath(card.backImage)" alt="product zoom" class="d-none card__img img-hover">
+                <figure @mouseover="swapImgs(i)" @mouseleave="swapImgsBack(i)" >
+                    <img :src="getImgPath(card.frontImage)" :class="(activeIndex == i && isOnOver == true) ? 'd-none' : ''" alt="product picture" class="card__img img-fixed">
+                    <img :src="getImgPath(card.backImage)" :class="(activeIndex == i && isOnOver == true) ? '' : 'd-none'"  alt="product zoom" class="card__img img-hover">
+                </figure>
             
                 <div v-if="card.badges.at(-1).type == 'discount'" class="card__info py-1">
                     <p class="product_brand">{{ card.brand }}</p>
