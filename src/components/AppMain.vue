@@ -1,5 +1,7 @@
 <script>
 
+    import AppCard from './AppCard.vue';
+
     export default {
         data () {
             return {
@@ -107,51 +109,9 @@
                             ],
                         },
                         ],
-                activeIndex: 0,
-                isOnOver: false,
             }
         },
-        computed: {
-            activeCard() {
-                return this.cards[this.activeIndex];
-            },
-
-        },
-        methods: {
-            getDiscountPerc(value) {
-                const valueNum = parseInt(value.substr(1,2));
-                if(isNaN(valueNum)) {
-                    valueNum = 0;
-                }
-                return valueNum;
-            },
-
-            getDiscountedPrice(fullPrice,data) {
-                const discountPerc = this.getDiscountPerc(data);
-                const discount = fullPrice * discountPerc / 100;
-                const finalPrice = fullPrice - discount;
-                return finalPrice.toFixed(2);
-            },
-
-            getImgPath(imgName) {
-                const url = new URL ( '../assets/img/'+ imgName , import.meta.url);
-                return url;
-            },
-
-            swapImgs(index) {
-                this.activeIndex = index;
-                this.isOnOver = true;
-            },
-
-            swapImgsBack(index) {
-                this.activeIndex = 0;
-                this.isOnOver = false;
-            },
-
-            toggleToFavourites(card) {
-                card.isInFavorites = !card.isInFavorites;
-            },
-        }
+        components: { AppCard },
     }
 
 </script>
@@ -161,21 +121,23 @@
     <div class="container">
         <div class="row justify-content-between align-items-center">
 
-            <div v-for="(card,i) in cards" class="card p-0">
+            <app-card v-for="(card,i) in cards" :cards="cards" :card="card" :i="i" />
+
+            <!-- <div v-for="(card,i) in cards" class="card p-0"> -->
             
-                <figure @mouseover="swapImgs(i)" @mouseleave="swapImgsBack(i)" >
+                <!-- <figure @mouseover="swapImgs(i)" @mouseleave="swapImgsBack(i)" class="mb-1">
                     <img :src="getImgPath(card.frontImage)" :class="(activeIndex == i && isOnOver == true) ? 'd-none' : ''" alt="product picture" class="card__img img-fixed">
                     <img :src="getImgPath(card.backImage)" :class="(activeIndex == i && isOnOver == true) ? '' : 'd-none'"  alt="product zoom" class="card__img img-hover">
                 </figure>
             
-                <div v-if="card.badges.at(-1).type == 'discount'" class="card__info py-1">
+                <div v-if="card.badges.at(-1).type == 'discount'" class="card__info px-1">
                     <p class="product_brand">{{ card.brand }}</p>
                     <h2 class="product_name">{{ card.name }}</h2>
                     <span class="product_price_sale text-danger fw-bold me-1">{{ getDiscountedPrice(card.price, card.badges.at(-1).value) }}</span>
                     <span class="product_price_full text-decoration-line-through">{{ card.price }}</span>
                 </div>
 
-                <div v-else class="card__info py-1">
+                <div v-else class="card__info px-1">
                     <p class="product_brand">{{ card.brand }}</p>
                     <h2 class="product_name">{{ card.name }}</h2>
                     <span class="product_price_sale text-danger fw-bold">{{ card.price }}</span>
@@ -199,9 +161,9 @@
 
                 <div v-else-if="card.badges.length == 1 && card.badges[0].type == 'tag'" class="card__tags">
                     <span class="card__tag category sustainable">{{ card.badges[0].value }}</span>
-                </div>
+                </div> -->
 
-            </div>
+            <!-- </div> -->
 
             <!--
                 
