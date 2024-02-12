@@ -2,8 +2,8 @@
 
     export default {
         props: {
-            cards: Array,
-            card: Object,
+            products: Array,
+            product: Object,
             i: Number,
         },
         data() {
@@ -13,13 +13,13 @@
             }
         },
         computed: {
-            activeCard() {
-                return this.cards[this.activeIndex];
+            activeProduct() {
+                return this.products[this.activeIndex];
             },
         },
         methods: {
             getDiscountPerc(value) {
-                const valueNum = parseInt(value.substr(1,2));
+                let valueNum = parseInt(value.substr(1,2));
                 if(isNaN(valueNum)) {
                     valueNum = 0;
                 }
@@ -48,8 +48,8 @@
                 this.isOnOver = false;
             },
 
-            toggleToFavourites(card) {
-                card.isInFavorites = !card.isInFavorites;
+            toggleToFavourites(product) {
+                product.isInFavorites = !product.isInFavorites;
             },
         }
     }
@@ -61,41 +61,41 @@
     <div class="card p-0">
 
         <figure @mouseover="swapImgs(i)" @mouseleave="swapImgsBack(i)" class="mb-1">
-            <img :src="getImgPath(card.frontImage)" :class="(activeIndex == i && isOnOver == true) ? 'd-none' : ''" alt="product picture" class="card__img img-fixed">
-            <img :src="getImgPath(card.backImage)" :class="(activeIndex == i && isOnOver == true) ? '' : 'd-none'"  alt="product zoom" class="card__img img-hover">
+            <img :src="getImgPath(product.frontImage)" :class="(activeIndex == i && isOnOver == true) ? 'd-none' : ''" alt="product picture" class="card__img img-fixed">
+            <img :src="getImgPath(product.backImage)" :class="(activeIndex == i && isOnOver == true) ? '' : 'd-none'"  alt="product zoom" class="card__img img-hover">
         </figure>  
         
-        <div v-if="card.badges.at(-1).type == 'discount'" class="card__info px-1">
-            <p class="product_brand">{{ card.brand }}</p>
-            <h2 class="product_name">{{ card.name }}</h2>
-            <span class="product_price_sale text-danger fw-bold me-1">{{ getDiscountedPrice(card.price, card.badges.at(-1).value) }}</span>
-            <span class="product_price_full text-decoration-line-through">{{ card.price }}</span>
+        <div v-if="product.badges.at(-1).type == 'discount'" class="card__info px-1">
+            <p class="product_brand">{{ product.brand }}</p>
+            <h2 class="product_name">{{ product.name }}</h2>
+            <span class="product_price_sale text-danger fw-bold me-1">{{ getDiscountedPrice(product.price, product.badges.at(-1).value) }}€</span>
+            <span class="product_price_full text-decoration-line-through">{{ product.price }}€</span>
         </div>
 
         <div v-else class="card__info px-1">
-            <p class="product_brand">{{ card.brand }}</p>
-            <h2 class="product_name">{{ card.name }}</h2>
-            <span class="product_price_sale text-danger fw-bold">{{ card.price }}</span>
+            <p class="product_brand">{{ product.brand }}</p>
+            <h2 class="product_name">{{ product.name }}</h2>
+            <span class="product_price_sale text-danger fw-bold">{{ product.price }}€</span>
         </div>
 
         <div 
-        :class="(card.isInFavorites) ? 'text-danger' : ' '" 
-        @click="toggleToFavourites(card)"
+        :class="(product.isInFavorites) ? 'text-danger' : ' '" 
+        @click="toggleToFavourites(product)"
         class="card__heart">
             <font-awesome-icon icon="fa-solid fa-heart" />
         </div>
 
-        <div v-if="card.badges.length > 1 && card.badges[0].type !== 'discount'" class="card__tags">
-            <span  class="card__tag discount d-50 me-1">{{ card.badges.at(-1).value }}</span>
-            <span class="card__tag category sustainable">{{ card.badges[0].value }}</span>
+        <div v-if="product.badges.length > 1 && product.badges[0].type !== 'discount'" class="card__tags">
+            <span  class="card__tag discount d-50 me-1">{{ product.badges.at(-1).value }}</span>
+            <span class="card__tag category sustainable">{{ product.badges[0].value }}</span>
         </div>
 
-        <div v-else-if="card.badges.length == 1 && card.badges[0].type == 'discount'" class="card__tags">
-            <span  class="card__tag discount d-50">{{ card.badges[0].value }}</span>
+        <div v-else-if="product.badges.length == 1 && product.badges[0].type == 'discount'" class="card__tags">
+            <span  class="card__tag discount d-50">{{ product.badges[0].value }}</span>
         </div>                  
 
-        <div v-else-if="card.badges.length == 1 && card.badges[0].type == 'tag'" class="card__tags">
-            <span class="card__tag category sustainable">{{ card.badges[0].value }}</span>
+        <div v-else-if="product.badges.length == 1 && product.badges[0].type == 'tag'" class="card__tags">
+            <span class="card__tag category sustainable">{{ product.badges[0].value }}</span>
         </div>
     
     </div>        
