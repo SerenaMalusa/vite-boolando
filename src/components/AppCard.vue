@@ -22,12 +22,12 @@
             },
         },
         methods: {
-            // function that gets a value and parses it (if NaN passes 0) 
+            // function that gets a value and parses it (if NaN returns 0) 
             getDiscountPerc(value) {
                 let valueNum = parseInt(value.substr(1,2));
                 if(isNaN(valueNum)) {
                     valueNum = 0;
-                }
+                };
                 return valueNum;
             },
             // function that gets a price and a value and returns the discounted price
@@ -77,20 +77,14 @@
             <img :src="getImgPath(product.backImage)" :class="(activeIndex == i && isOnOver == true) ? '' : 'd-none'"  alt="product zoom" class="card__img img-hover">
         </figure>  
         
-        <!-- this div is shown when the type of last product badge is 'discount' -->
-        <div v-if="product.badges.at(-1).type == 'discount'" class="card__info px-1">
+        <!-- div that contains the product's informations -->
+        <div class="card__info px-1">
             <p class="product_brand">{{ product.brand }}</p>
             <h2 class="product_name">{{ product.name }}</h2>
-            <!-- print the discounted price (getDiscountedPrice from full price and the value of the discount badge) -->
-            <span class="product_price_sale text-danger fw-bold me-1">{{ getDiscountedPrice(product.price, product.badges.at(-1).value) }}€</span>
+            <!-- this span is shown when the type of last product badge is 'discount'.
+                It prints the discounted price (getDiscountedPrice from full price and the value of the discount badge) -->
+            <span v-if="product.badges.at(-1).type == 'discount'" class="product_price_sale text-danger fw-bold me-1">{{ getDiscountedPrice(product.price, product.badges.at(-1).value) }}€</span>
             <span class="product_price_full text-decoration-line-through">{{ product.price }}€</span>
-        </div>
-
-        <!-- this div is shown when the type of last product badge is not 'discount' -->
-        <div v-else class="card__info px-1">
-            <p class="product_brand">{{ product.brand }}</p>
-            <h2 class="product_name">{{ product.name }}</h2>
-            <span class="product_price_sale text-danger fw-bold">{{ product.price }}€</span>
         </div>
 
         <!-- this div manages the isInFavorites key of the card: 
@@ -114,7 +108,7 @@
             <span  class="card__tag discount d-50">{{ product.badges[0].value }}</span>
         </div>                  
 
-        <!-- this div is shown if there is just one badge but it's type is not 'discount' -->
+        <!-- this div is shown if there is just one badge but it's type is 'tag' -->
         <div v-else-if="product.badges.length == 1 && product.badges[0].type == 'tag'" class="card__tags">
             <span class="card__tag category sustainable">{{ product.badges[0].value }}</span>
         </div>
