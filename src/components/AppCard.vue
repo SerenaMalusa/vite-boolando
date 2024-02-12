@@ -51,7 +51,7 @@
             toggleToFavourites(product) {
                 product.isInFavorites = !product.isInFavorites;
             },
-        }
+        },
     }
 
 </script>

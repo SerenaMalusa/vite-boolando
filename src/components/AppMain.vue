@@ -1,6 +1,6 @@
 <script>
 
-    import { apiUri } from '../store';
+    import { apiUri, productList } from '../store';
 
     import axios from 'axios';
 
@@ -10,15 +10,16 @@
         data () {
             return {
                 apiUri,
-                products: [],
+                productList,
+                // products: [],
             }
         },
         components: { AppCard },
         methods: {
             fetchProducts() {
-                axios.get(this.apiUri.uri)
+                axios.get(this.apiUri.uri+'products')
                     .then((res) => {
-                        this.products = res.data;
+                        this.productList.products = res.data;
                     });
             },
         },
@@ -34,7 +35,7 @@
     <div class="container">
         <div class="row justify-content-between align-items-center">
 
-            <app-card v-for="(product,i) in products" :products="products" :product="product" :i="i" />
+            <app-card v-for="(product,i) in productList.products" :products="productList.products" :product="product" :i="i" />
 
             <!-- <div v-for="(card,i) in cards" class="card p-0"> -->
             
