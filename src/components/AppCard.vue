@@ -124,9 +124,10 @@
     @use '../styles/partials/mixins' as *;
 
     .card {
-         width: calc(100% / 3 - $grid-spacing);
-        position: relative;
+        border: none;
+        width: calc(100% / 3 - $grid-spacing);
         font-size: 0.8rem;
+        position: relative;
 
         .product_name {
             text-transform: uppercase;
