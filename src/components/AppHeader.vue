@@ -93,12 +93,6 @@
 
             @include d-flex_between_center;
 
-            ul {
-                list-style: none;
-                @include d-flex_between_center;
-                gap: 8px;
-            }
-
             img {
                 height: 25px;
             }
