@@ -1,9 +1,10 @@
 <script>
-
+    
+    // import API url and product list form the golbal state
     import { apiUri, productList } from '../store';
-
+    // import Axios
     import axios from 'axios';
-
+    // import components
     import AppCard from './AppCard.vue';
 
     export default {
@@ -14,16 +15,22 @@
                 // products: [],
             }
         },
+        // write the components so that they are ready to be used here
         components: { AppCard },
         methods: {
+            // function to get the products form the database
             fetchProducts() {
+                // axios get
                 axios.get(this.apiUri.uri+'products')
+                    // wait for the response (asynchronous)
                     .then((res) => {
+                        // assign the response to product list array
                         this.productList.products = res.data;
                     });
             },
         },
         created() {
+            // call the fecthProducts function after creation before the app is mounted
             this.fetchProducts();
         },
     }
@@ -35,6 +42,7 @@
     <div class="container">
         <div class="row justify-content-between align-items-center">
 
+            <!-- call the component AppCard eith a v-for and send the necessary value trough props -->
             <app-card v-for="(product,i) in productList.products" :products="productList.products" :product="product" :i="i" />
 
             <!-- <div v-for="(card,i) in cards" class="card p-0"> -->
@@ -110,8 +118,10 @@
 </template>
 
 <style lang="scss" scoped>
-    @use '../styles/partials/variables' as *;
+
+    // import mixins and variables
     @use '../styles/partials/mixins' as *;
+    @use '../styles/partials/variables' as *;
 
     .container {        
         margin-top: calc($grid-spacing * 4);
