@@ -1,5 +1,6 @@
 <script>
 
+    // import the list component
     import list from './_list.vue';
 
     export default {
@@ -8,10 +9,12 @@
 
             }
         },
+        // get the list object as a prop
         props: {
             lists: Object,
             // informations: Object,
         },
+        // write the list component so that it can be used here
         components: { list },
     }
 
@@ -24,6 +27,7 @@
         <div class="container">
             <nav class="footer__nav footer_left">
 
+                <!-- list component whith prop informations -->
                 <list :listObj="lists.informations"/>
                     <!-- <h3 class="footer__title">{{ lists.informations.title }}</h3>
                     <ul class="nav__list m-0 p-0">
@@ -44,6 +48,7 @@
             </nav>
 
             <nav class="footer__nav right">
+                <!-- list component whith prop informations -->
                 <list :listObj="lists.social" />
             </nav>
 
@@ -56,6 +61,7 @@
 
 <style lang="scss" scoped>
 
+    // import variables and mixins
     @use '../styles/partials/variables' as *;
     @use '../styles/partials/mixins' as *;
 

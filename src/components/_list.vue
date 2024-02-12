@@ -1,5 +1,6 @@
 <script>
 
+    // get the data trough props
     export default {
         props: {
             listObj: Object,
@@ -10,16 +11,16 @@
 
 <template>
 
+    <!-- show the title only if the listObject has this key -->
     <h3 v-if="listObj.title">{{ listObj.title }}</h3>
     <ul class="m-0 p-0">
         <li v-for="link in listObj.links">
-            
+            <!-- if the link type is string then show this anchor tag -->
             <a v-if="link.type == 'string'" :href="link.url" class="nav__link">{{ link.text }}</a>
-            
+            <!-- if the link type is icon then show this anchor tag -->          
             <a v-else-if="link.type == 'icon'" :href="link.url">
                 <font-awesome-icon :icon="link.icon + ' ' + link.iconKit" />
-            </a>
-            
+            </a>            
         </li>
     </ul>
 
@@ -44,6 +45,7 @@
 
 <style lang="scss" scoped>
 
+    // import variables and mixins
     @use '../styles/partials/variables' as *;
     @use '../styles/partials/mixins' as *;
 

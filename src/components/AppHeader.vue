@@ -1,11 +1,14 @@
 <script>
 
+    // import the list component
     import list from './_list.vue';
     
     export default {
+        // get the list object as a prop
         props: {
             lists: Object,
         },
+        // write the list component so that it can be used here
         components: { list },
     };
 
@@ -17,6 +20,7 @@
 
        <div class="container p-0">
 
+            <!-- list component whith prop catgories -->
             <list :listObj="lists.categories"/>
         
             <!-- <ul class="m-0 p-0">
@@ -28,10 +32,12 @@
                 <li class="debug"><a href="#"></a></li> -->
             <!-- </ul> -->
 
+            <!-- boolean logo -->
             <div>
                 <img src="../assets/img/boolean-logo.png" alt="boolean logo">
             </div>
 
+            <!-- list component whith prop userLinks -->
             <list :listObj="lists.userLinks"/>
 
             <!-- <ul class="mb-0 p-0">
@@ -68,6 +74,7 @@
 
 <style lang="scss" scoped>
 
+    // import variables and mixins
     @use '../styles/partials/variables' as *;
     @use '../styles/partials/mixins' as *;
 

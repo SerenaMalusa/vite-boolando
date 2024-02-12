@@ -1,7 +1,8 @@
+// import mixins and variables
 @use './partials/_mixins.scss' as *;
 @use './partials/_variables.scss' as *;
 
-// Import of Bootstrap's CSS
+// Import Bootstrap's CSS
 @import "bootstrap/scss/bootstrap";
 
 
@@ -31,15 +32,15 @@ a {
     color: inherit;
 }
 
+.container {
+    max-width: 65%;
+}
+
 // DEBUG
 .debug {
     border: 1px solid aqua;
     height: 70%;
     max-height: 300px;
     // width: 200px;
-}
-
-.container {
-    max-width: 65%;
 }
 

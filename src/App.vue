@@ -1,4 +1,5 @@
 <script>
+  // import components
   import AppHeader from './components/AppHeader.vue';
   import AppMain from './components/AppMain.vue';
   import AppFooter from './components/AppFooter.vue';
@@ -108,7 +109,7 @@
         },
       }
     },
-
+    // write components here so that they can be used and printed
     components: { AppHeader, AppMain, AppFooter },
   }
   
@@ -116,16 +117,20 @@
 
 <template>
    
+   <!-- header component pass lists as a prop -->
    <app-header :lists="lists"/>
 
+   <!-- main component -->
    <app-main />
 
+   <!-- footer component pass lists as a prop -->
    <app-footer :lists="lists"/>
 
 </template>
 
 <style lang="scss">
 
+  // import file general.scss
   @use  './styles/general.scss';
 
 </style>
