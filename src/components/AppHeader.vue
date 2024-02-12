@@ -52,7 +52,8 @@
                 <!-- <li class="debug">
                     <a href="#"> -->
                         <!-- <i class="fa-regular fa-user"></i> -->
-                        <!-- <font-awesome-icon icon="fa-regular fa-user" />                    </a> -->
+                        <!-- <font-awesome-icon icon="fa-regular fa-user" />                    
+                    </a> -->
                 <!-- </li>
                 <li class="debug">
                     <a href="#">
