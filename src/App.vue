@@ -8,37 +8,47 @@
     data() {
       return {
         lists: {
-            categories: [
+            categories: {
+              links: [
                 {
-                    text: 'Donna',
-                    url: '#',
+                  type: 'string',
+                  text: 'Donna',
+                  url: '#',
                 },
                 {
-                    text: 'Uomo',
-                    url: '#',
+                  type: 'string',
+                  text: 'Uomo',
+                  url: '#',
                 },
                 {
-                    text: 'Bambino',
-                    url: '#',
+                  type: 'string',
+                  text: 'Bambino',
+                  url: '#',
                 },
-            ],
-            userLinks: [
+              ],
+            },
+            userLinks: {
+              links: [
                 {
-                    icon: 'fa-user',
-                    iconKit: 'fa-regular',
-                    url: '#',
+                  type: 'icon',
+                  icon: 'fa-user',
+                  iconKit: 'fa-regular',
+                  url: '#',
                 },
                 {
-                    icon: 'fa-heart',
-                    iconKit: 'fa-regular',
-                    url: '#',
+                  type: 'icon',
+                  icon: 'fa-heart',
+                  iconKit: 'fa-regular',
+                  url: '#',
                 },
                 {
-                    icon: 'fa-bag-shopping',
-                    iconKit: 'fa-solid',
-                    url: '#',
+                  type: 'icon',
+                  icon: 'fa-bag-shopping',
+                  iconKit: 'fa-solid',
+                  url: '#',
                 },
-            ],
+              ],
+            },
             informations: {
               title: 'Boolando s.r.l',
               links: [

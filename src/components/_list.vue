@@ -10,7 +10,7 @@
 
 <template>
 
-    <h3>{{ listObj.title }}</h3>
+    <h3 v-if="listObj.title">{{ listObj.title }}</h3>
     <ul class="m-0 p-0">
         <li v-for="link in listObj.links">
             

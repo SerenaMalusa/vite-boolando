@@ -1,9 +1,12 @@
 <script>
+
+    import list from './_list.vue';
     
     export default {
         props: {
             lists: Object,
-        }
+        },
+        components: { list },
     };
 
 </script>
@@ -13,25 +16,31 @@
    <section>
 
        <div class="container p-0">
+
+            <list :listObj="lists.categories"/>
         
-            <ul class="m-0 p-0">
+            <!-- <ul class="m-0 p-0">
                 <li v-for="link in lists.categories">
                     <a :href="link.url">{{ link.text }}</a>
-                </li>
+                </li> -->
                 <!-- <li class="debug"><a href="#"></a></li>
                 <li class="debug"><a href="#"></a></li>
                 <li class="debug"><a href="#"></a></li> -->
-            </ul>
+            <!-- </ul> -->
+
             <div>
                 <img src="../assets/img/boolean-logo.png" alt="boolean logo">
             </div>
-            <ul class="mb-0 p-0">
+
+            <list :listObj="lists.userLinks"/>
+
+            <!-- <ul class="mb-0 p-0">
                 
                 <li v-for="link in lists.userLinks">
                     <a :href="link.url">
                         <font-awesome-icon :icon="link.icon + ' ' + link.iconKit" />
                     </a>
-                </li>
+                </li> -->
 
 
                 <!-- <li class="debug">
@@ -49,7 +58,7 @@
                         <font-awesome-icon icon="fa-solid fa-bag-shopping" />
                     </a>
                 </li> -->
-            </ul>
+            <!-- </ul> -->
 
        </div>
 
