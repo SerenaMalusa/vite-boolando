@@ -1,7 +1,7 @@
 <script>
 
     // import the list component
-    import list from './_list.vue';
+    import AppList from './AppList.vue';
 
     export default {
         data () {
@@ -15,7 +15,7 @@
             // informations: Object,
         },
         // write the list component so that it can be used here
-        components: { list },
+        components: { AppList },
     }
 
 </script>
@@ -28,7 +28,7 @@
             <nav class="footer__nav footer_left">
 
                 <!-- list component whith prop informations -->
-                <list :listObj="lists.informations"/>
+                <app-list :listObj="lists.informations"/>
                     <!-- <h3 class="footer__title">{{ lists.informations.title }}</h3>
                     <ul class="nav__list m-0 p-0">
                         <li v-for="link in lists.informations.links">
@@ -49,7 +49,7 @@
 
             <nav class="footer__nav right">
                 <!-- list component whith prop informations -->
-                <list :listObj="lists.social" />
+                <app-list :listObj="lists.social" />
             </nav>
 
         </div>

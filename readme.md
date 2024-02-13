@@ -1,4 +1,4 @@
-## Esercizio di oggi (08/02/24): Vite Boolando
+## Esercizio di oggi (08-13/02/24): Vite Boolando
 
 Nome repo: `vite-boolando`
 

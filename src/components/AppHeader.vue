@@ -1,7 +1,7 @@
 <script>
 
     // import the list component
-    import list from './_list.vue';
+    import AppList from './AppList.vue';
     
     export default {
         // get the list object as a prop
@@ -9,7 +9,7 @@
             lists: Object,
         },
         // write the list component so that it can be used here
-        components: { list },
+        components: { AppList },
     };
 
 </script>
@@ -21,7 +21,7 @@
        <div class="container p-0">
 
             <!-- list component whith prop catgories -->
-            <list :listObj="lists.categories"/>
+            <app-list :listObj="lists.categories"/>
         
             <!-- <ul class="m-0 p-0">
                 <li v-for="link in lists.categories">
@@ -38,7 +38,7 @@
             </div>
 
             <!-- list component whith prop userLinks -->
-            <list :listObj="lists.userLinks"/>
+            <app-list :listObj="lists.userLinks"/>
 
             <!-- <ul class="mb-0 p-0">
                 

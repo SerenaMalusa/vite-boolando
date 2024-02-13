@@ -11,3 +11,8 @@ export const productList = reactive({
     // it'empty because the array will be fetched after app creation in AppMain
     products: [],
 });
+
+// create and export the modal related variables
+export const modal = reactive({
+    isVisible: true,
+});

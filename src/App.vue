@@ -1,13 +1,17 @@
 <script>
+  // import data form the golbal state
+  import { modal } from './store';
+
   // import components
   import AppHeader from './components/AppHeader.vue';
   import AppMain from './components/AppMain.vue';
   import AppFooter from './components/AppFooter.vue';
-
+  import AppModal from './components/AppModal.vue';
 
   export default {
     data() {
       return {
+        modal,
         lists: {
             categories: {
               links: [
@@ -110,7 +114,7 @@
       }
     },
     // write components here so that they can be used and printed
-    components: { AppHeader, AppMain, AppFooter },
+    components: { AppHeader, AppMain, AppFooter, AppModal },
   }
   
 </script>
@@ -125,6 +129,9 @@
 
    <!-- footer component pass lists as a prop -->
    <app-footer :lists="lists"/>
+
+   <!-- modal component -->
+   <app-modal v-if="modal.isVisible"/>
 
 </template>
 
