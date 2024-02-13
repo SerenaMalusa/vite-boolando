@@ -84,7 +84,7 @@
         <!-- div that contains the product's informations -->
         <div class="card__info px-1">
             <p class="product_brand">{{ product.brand }}</p>
-            <h2 @click="$emit('productClicked')" class="product_name">{{ product.name }}</h2>
+            <h2 @click="$emit('productClicked',product)" class="product_name">{{ product.name }}</h2>
             <!-- this span is shown when the type of last product badge is 'discount'.
                 It prints the discounted price (getDiscountedPrice from full price and the value of the discount badge) -->
             <span v-if="product.badges.at(-1).type == 'discount'" class="product_price_sale text-danger fw-bold me-1">{{ getDiscountedPrice(product.price, product.badges.at(-1).value) }}€</span>
@@ -136,6 +136,12 @@
         .product_name {
             text-transform: uppercase;
             font-size: 0.9rem;
+
+            &:hover {
+                cursor: pointer;
+                text-decoration: underline;
+                color: $primary-color;
+            }
         }
 
         .card__heart {

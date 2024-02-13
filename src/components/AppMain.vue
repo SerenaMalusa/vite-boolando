@@ -30,6 +30,10 @@
                         this.productList.products = res.data;
                     });
             },
+            showModal(product) {
+                modal.product = product;
+                modal.isVisible = true;
+            },
         },
         created() {
             // call the fecthProducts function after creation before the app is mounted
@@ -45,7 +49,7 @@
         <div class="row justify-content-between align-items-center">
 
             <!-- call the component AppCard eith a v-for and send the necessary value trough props -->
-            <app-card @productClicked="modal.isVisible = true" v-for="(product,i) in productList.products" :products="productList.products" :product="product" :i="i" />
+            <app-card @productClicked="showModal" v-for="(product,i) in productList.products" :products="productList.products" :product="product" :i="i" />
 
             <!-- <div v-for="(card,i) in cards" class="card p-0"> -->
             
