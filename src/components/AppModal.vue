@@ -18,7 +18,24 @@
                 if (badge.type == 'tag') badgeClass = 'category';
                 else if (badge.type == 'discount') badgeClass = 'discount';
                 return badgeClass;
-            }
+            },
+            // function that gets a value and parses it (if NaN returns 0) 
+            getDiscountPerc(value) {
+                let valueNum = parseInt(value.substr(1,2));
+                if(isNaN(valueNum)) {
+                    valueNum = 0;
+                };
+                return valueNum;
+            },
+            // function that gets a price and a value and returns the discounted price
+            getDiscountedPrice(fullPrice,data) {
+                // parse the value from data
+                const discountPerc = this.getDiscountPerc(data);
+                // calc the discount %, then the discounted price and returns it
+                const discount = fullPrice * discountPerc / 100;
+                const finalPrice = fullPrice - discount;
+                return finalPrice.toFixed(2);
+            },
         }
     }
 </script>
@@ -41,12 +58,25 @@
                 </figure>
                 <div class="modal_info col-6">
                     <div class="card text-start px-2">
-                        <h4 class="product_name">Brand: {{ modal.brand }}</h4>
-                        <div class="product_badges">
+                        <div class="half">
+                            <h4 class="product_name">Brand: {{ modal.brand }}</h4>
+                            <div class="product_badges">
+                                <span 
+                                v-for="badge in modal.badges" 
+                                :class="assignBadgeClass(badge)"
+                                class="tag me-2">{{ badge.value }}</span>
+                            </div>
+                        </div>
+                        <div class="half">
+                            <h4 class="product_price">Price:</h4>
+                            <span v-if="modal.badges.at(-1).type == 'discount'" class="h4 text-danger">
+                            {{ getDiscountedPrice(modal.price,modal.badges.at(-1).value) + '€ ' }} 
+                            </span>
                             <span 
-                            v-for="badge in modal.badges" 
-                            :class="assignBadgeClass(badge)"
-                            class="tag me-2">{{ badge.value }}</span>
+                            :class="(modal.badges.at(-1).type == 'discount') ? 'text-decoration-line-through' : ''" 
+                            class="h4"> 
+                            {{ modal.price }}€
+                        </span>
                         </div>
                     </div>
                 </div>
@@ -93,6 +123,11 @@
             
             .card {
                 border: none;
+                height: 100%;
+
+                .half {
+                    height: 50%;
+                }
             }
 
         }
