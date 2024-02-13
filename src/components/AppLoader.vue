@@ -8,8 +8,8 @@
     <div class="layover">
         <div class="loader">
             <font-awesome-icon 
-            class="icon" 
-            icon="fa-solid fa-spinner fa-spin" 
+            class="icon fa-spin" 
+            icon="spinner" 
             />
         </div>
     </div>
