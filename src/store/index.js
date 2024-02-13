@@ -15,4 +15,5 @@ export const productList = reactive({
 // create and export the modal related variables
 export const modal = reactive({
     isVisible: true,
+    title: 'Titolo prodotto',
 });
