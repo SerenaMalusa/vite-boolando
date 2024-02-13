@@ -10,11 +10,11 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 /* import specific icons CMQ NON FUNZIONA CON ALL-(premium?)*/
-import { faBagShopping, faHeart as faHeartSolid, faSquareXmark, faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faBagShopping, faHeart as faHeartSolid, faSquareXmark, faArrowRight, faArrowLeft, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { faUser, faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faTwitter, faSquareFacebook, faSquareInstagram, faSquarePinterest, faSquareYoutube } from '@fortawesome/free-brands-svg-icons';
 /* add icons to the library */
-library.add(faUser, faHeart, faBagShopping, faHeartSolid, faTwitter, faSquareFacebook, faSquareInstagram, faSquarePinterest, faSquareYoutube, faSquareXmark, faArrowRight, faArrowLeft );
+library.add(faUser, faHeart, faBagShopping, faHeartSolid, faTwitter, faSquareFacebook, faSquareInstagram, faSquarePinterest, faSquareYoutube, faSquareXmark, faArrowRight, faArrowLeft, faSpinner );
 
 // use createApp to create the const app, add the fontAwsome components then mount the app
 const app = createApp(App);

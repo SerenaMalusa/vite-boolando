@@ -104,71 +104,58 @@
     @use '../styles/partials/variables' as *;
     @use '../styles/partials/mixins' as *;
 
-    .layover {
-        backdrop-filter: blur(5px) grayscale(70%);
+    .app_modal {
+    background-color: white;
+    width: 840px;
+    text-align: center;
 
-        @include d-flex_center_center;
+        .modal_title {
+            border-bottom: 1px solid $primary_color;
+            @include d-flex_between_center;
 
-        position: fixed;
-        top: 0; 
-        right: 0;
-        bottom: 0;
-        left: 0;
+            .modal_close-icon {
+                color: $primary_color;
+                font-size: 1.4rem;
 
-        .app_modal {
-            background-color: white;
-            width: 840px;
-            text-align: center;
-
-            .modal_title {
-                border-bottom: 1px solid $primary_color;
-                @include d-flex_between_center;
-
-                .modal_close-icon {
-                    color: $primary_color;
-                    font-size: 1.4rem;
-
-                    &:hover {
-                        cursor: pointer;
-                    }
+                &:hover {
+                    cursor: pointer;
                 }
             }
+        }
 
-            figure {
-                margin: 0;     
-                position: relative;
-                
-                .arrow {
-                    position: absolute;
-                    top: 50%;
-                    transform: translateY(-50%);
-
-                    &.arrowNext {                        
-                        right: 10px;
-                    }
-
-                    &.arrowPrev {
-                        left: 10px;
-                    }
-
-                    &:hover {
-                        cursor: pointer;
-                        color: $primary-color;
-                    }
-                }
-            }
+        figure {
+            margin: 0;     
+            position: relative;
             
-            .card {
-                border: none;
-                height: 100%;
+            .arrow {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
 
-                .half {
-                    height: 50%;
+                &.arrowNext {                        
+                    right: 10px;
+                }
+
+                &.arrowPrev {
+                    left: 10px;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    color: $primary-color;
                 }
             }
+        }
+        
+        .card {
+            border: none;
+            height: 100%;
 
+            .half {
+                height: 50%;
+            }
         }
 
-        }
+    }
 
 </style>

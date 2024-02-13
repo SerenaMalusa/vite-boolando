@@ -130,8 +130,6 @@
    <!-- footer component pass lists as a prop -->
    <app-footer :lists="lists"/>
 
-   <!-- modal component
-   <app-modal v-if="modal.isVisible"/> -->
 
 </template>
 

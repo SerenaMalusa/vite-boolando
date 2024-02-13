@@ -1,16 +1,18 @@
 <script>
     
     // import API url and product list form the golbal state
-    import { apiUri, productList, modal } from '../store';
+    import { apiUri, productList, modal, loader } from '../store';
     // import Axios
     import axios from 'axios';
     // import components
     import AppCard from './AppCard.vue';
     import AppModal from './AppModal.vue';
+    import AppLoader from './AppLoader.vue';
 
     export default {
         data () {
             return {
+                loader,
                 modal,
                 apiUri,
                 productList,
@@ -18,18 +20,26 @@
             }
         },
         // write the components so that they are ready to be used here
-        components: { AppCard, AppModal },
+        components: { AppCard, AppModal, AppLoader },
         methods: {
             // function to get the products form the database
             fetchProducts() {
+                // makes the loader visible
+                loader.isVisible = true;
                 // axios get
                 axios.get(this.apiUri.uri+'products')
                     // wait for the response (asynchronous)
                     .then((res) => {
                         // assign the response to product list array
                         this.productList.products = res.data;
+                    })
+                    // in any case
+                    .finally(()=> {
+                        // make the loader disappear
+                        loader.isVisible = false;
                     });
             },
+            // function that changes the modal's product to the card's product then shows the modal
             showModal(product) {
                 modal.product = product;
                 modal.isVisible = true;
@@ -48,8 +58,16 @@
     <div class="container">
         <div class="row justify-content-between align-items-center">
 
-            <!-- call the component AppCard eith a v-for and send the necessary value trough props -->
-            <app-card @productClicked="showModal" v-for="(product,i) in productList.products" :products="productList.products" :product="product" :i="i" />
+            <!-- call the component AppCard with a v-for, 
+                send the necessary value trough props
+                and shows the modal when clicked -->
+            <app-card
+            @productClicked="showModal" 
+            v-for="(product,i) in productList.products" 
+            :products="productList.products" 
+            :product="product" 
+            :i="i" 
+            />
 
             <!-- <div v-for="(card,i) in cards" class="card p-0"> -->
             
@@ -122,7 +140,10 @@
     </div>
 
     <!-- modal component -->
-   <app-modal v-if="modal.isVisible"/>
+    <app-modal v-if="modal.isVisible"/>
+
+    <!-- loader component -->
+    <app-loader v-if="loader.isVisible" />
 
 </template>
 

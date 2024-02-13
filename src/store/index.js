@@ -25,3 +25,8 @@ export const modal = reactive({
         badges: [],
     }
 });
+
+// create and export the loader related variables
+export const loader = reactive({
+    isVisible: false,
+});
