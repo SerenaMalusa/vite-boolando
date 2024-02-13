@@ -59,7 +59,7 @@
                 this.isOnOver = false;
             },
             // function that changes the value of the key isInFavorites for the clicked card
-            toggleToFavourites(product) {
+            toggleInFavourites(product) {
                 product.isInFavorites = !product.isInFavorites;
             },
         },
@@ -92,7 +92,7 @@
         if it's clicked it changes from true to false and the opposite -->
         <div 
         :class="(product.isInFavorites) ? 'text-danger' : ' '" 
-        @click="toggleToFavourites(product)"
+        @click="toggleInFavourites(product)"
         class="card__heart">
             <font-awesome-icon icon="fa-solid fa-heart" />
         </div>

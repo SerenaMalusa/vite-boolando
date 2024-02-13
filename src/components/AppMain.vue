@@ -67,7 +67,7 @@
 
                 <div 
                 :class="(card.isInFavorites) ? 'text-danger' : ' '" 
-                @click="toggleToFavourites(card)"
+                @click="toggleInFavourites(card)"
                 class="card__heart">
                     <font-awesome-icon icon="fa-solid fa-heart" />
                 </div>
