@@ -8,6 +8,18 @@
                 modal,
             }
         },
+        methods: {
+            getImgSrc(imgName) {
+                const url = new URL ( '../assets/img/'+ imgName , import.meta.url);
+                return url;
+            },
+            assignBadgeClass(badge) {
+                let badgeClass = '';
+                if (badge.type == 'tag') badgeClass = 'category';
+                else if (badge.type == 'discount') badgeClass = 'discount';
+                return badgeClass;
+            }
+        }
     }
 </script>
 
@@ -15,14 +27,29 @@
     <div class="layover">
         <div class="app_modal p-2">
             <div class="modal_title pb-1">
-                <h3 class="mb-0">{{ modal.title }}</h3>
+                <h3 class="mb-0">{{ modal.name }}</h3>
                 <div class="modal_close-icon">
                     <font-awesome-icon icon="fa-solid fa-square-xmark" />
                 </div>
             </div>
-            <div class="modal_content d-flex">
-                <figure class="modal_imgs debug">ciao</figure>
-                <div class="modal_info debug">ciao</div>
+            <div class="modal_content row pt-2 g-0">
+                <figure class="modal_imgs col-6">
+                    <div class="card">
+                        <img class="" :src="getImgSrc(modal.frontImage)" alt="img2">
+                        <img class="d-none" :src="getImgSrc(modal.backImage)" alt="img2">
+                    </div>
+                </figure>
+                <div class="modal_info col-6">
+                    <div class="card text-start px-2">
+                        <h4 class="product_name">Brand: {{ modal.brand }}</h4>
+                        <div class="product_badges">
+                            <span 
+                            v-for="badge in modal.badges" 
+                            :class="assignBadgeClass(badge)"
+                            class="tag me-2">{{ badge.value }}</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -58,6 +85,14 @@
                     color: $primary_color;
                     font-size: 1.4rem;
                 }
+            }
+
+            figure {
+                margin: 0;               
+            }
+            
+            .card {
+                border: none;
             }
 
         }

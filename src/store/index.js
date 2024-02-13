@@ -15,5 +15,24 @@ export const productList = reactive({
 // create and export the modal related variables
 export const modal = reactive({
     isVisible: true,
-    title: 'Titolo prodotto',
+    frontImage: '2.webp',
+    backImage: '2b.webp',
+    brand: "Guess",
+    name: "Roses Tee",
+    price: 20.99,
+    isInFavorites: true,
+    badges: [
+        {
+            "type": "tag",
+            "value": "Sostenibilità"
+        },
+        {
+        type: "discount",
+        value: "-30%"
+        },
+        {
+            type: "discount",
+            value: "-50%"
+        }
+    ]
 });

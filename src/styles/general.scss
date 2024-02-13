@@ -44,3 +44,24 @@ a {
     // width: 200px;
 }
 
+// product tags
+.tags {
+    position: absolute;
+    bottom: 100px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 4px 8px;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+
+    &.discount {
+        background-color: red;
+    }
+
+    &.category {
+        background-color: green;
+    }
+}

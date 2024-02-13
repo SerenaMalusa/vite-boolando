@@ -98,19 +98,19 @@
         </div>
 
         <!-- this div is shown only if there are more than one badges and the type of the last one is 'discount' -->
-        <div v-if="product.badges.length > 1 && product.badges[0].type !== 'discount'" class="card__tags">
-            <span  class="card__tag discount d-50 me-1">{{ product.badges.at(-1).value }}</span>
-            <span class="card__tag category sustainable">{{ product.badges[0].value }}</span>
+        <div v-if="product.badges.length > 1 && product.badges[0].type !== 'discount'" class="tags">
+            <span  class="tag discount d-50">{{ product.badges.at(-1).value }}</span>
+            <span class="tag category sustainable">{{ product.badges[0].value }}</span>
         </div>
 
         <!-- this div is shown only if there is just one badge and it's type is 'discount' -->
-        <div v-else-if="product.badges.length == 1 && product.badges[0].type == 'discount'" class="card__tags">
-            <span  class="card__tag discount d-50">{{ product.badges[0].value }}</span>
+        <div v-else-if="product.badges.length == 1 && product.badges[0].type == 'discount'" class="tags">
+            <span  class="tag discount d-50">{{ product.badges[0].value }}</span>
         </div>                  
 
         <!-- this div is shown if there is just one badge but it's type is 'tag' -->
-        <div v-else-if="product.badges.length == 1 && product.badges[0].type == 'tag'" class="card__tags">
-            <span class="card__tag category sustainable">{{ product.badges[0].value }}</span>
+        <div v-else-if="product.badges.length == 1 && product.badges[0].type == 'tag'" class="tags">
+            <span class="tag category sustainable">{{ product.badges[0].value }}</span>
         </div>
     
     </div>        
@@ -151,26 +151,26 @@
             }
         }
 
-        .card__tags {
-                position: absolute;
-                bottom: 100px;
+        // .card__tags {
+        //         position: absolute;
+        //         bottom: 100px;
 
-                .card__tag {
-                    display: inline-block;
-                    padding: 4px 8px;
-                    color: white;
-                    font-size: 0.7rem;
-                    font-weight: bold;
+        //         .card__tag {
+        //             display: inline-block;
+        //             padding: 4px 8px;
+        //             color: white;
+        //             font-size: 0.7rem;
+        //             font-weight: bold;
 
-                    &.discount {
-                        background-color: red;
-                    }
+        //             &.discount {
+        //                 background-color: red;
+        //             }
 
-                    &.category {
-                        background-color: green;
-                    }
-                }
-        }
+        //             &.category {
+        //                 background-color: green;
+        //             }
+        //         }
+        // }
     }
 
 </style>
