@@ -6,9 +6,13 @@
         data() {
             return {
                 modal,
+                isFrontImg: true,
             }
         },
         methods: {
+            closeModal() {
+                modal.isVisible = false;
+            },
             getImgSrc(imgName) {
                 const url = new URL ( '../assets/img/'+ imgName , import.meta.url);
                 return url;
@@ -36,6 +40,9 @@
                 const finalPrice = fullPrice - discount;
                 return finalPrice.toFixed(2);
             },
+            toggleIsFrontImg() {
+                this.isFrontImg = !this.isFrontImg;
+            },  
         }
     }
 </script>
@@ -45,15 +52,21 @@
         <div class="app_modal p-2">
             <div class="modal_title pb-1">
                 <h3 class="mb-0">{{ modal.name }}</h3>
-                <div class="modal_close-icon">
+                <div @click="closeModal()" class="modal_close-icon">
                     <font-awesome-icon icon="fa-solid fa-square-xmark" />
                 </div>
             </div>
             <div class="modal_content row pt-2 g-0">
                 <figure class="modal_imgs col-6">
                     <div class="card">
-                        <img class="" :src="getImgSrc(modal.frontImage)" alt="img2">
-                        <img class="d-none" :src="getImgSrc(modal.backImage)" alt="img2">
+                        <img :class="(isFrontImg == true) ? '' : 'd-none'" :src="getImgSrc(modal.frontImage)" alt="img2">
+                        <img :class="(isFrontImg == false) ? '' : 'd-none'" :src="getImgSrc(modal.backImage)" alt="img2">
+                        <div @click="toggleIsFrontImg()" :class="(isFrontImg == true) ? '' : 'd-none'" class="arrow arrowNext">
+                            <font-awesome-icon icon="fa-solid fa-arrow-right" />
+                        </div>
+                        <div @click="toggleIsFrontImg()" :class="(isFrontImg == false) ? '' : 'd-none'" class="arrow arrowPrev">
+                            <font-awesome-icon icon="fa-solid fa-arrow-left" />
+                        </div>
                     </div>
                 </figure>
                 <div class="modal_info col-6">
@@ -97,14 +110,14 @@
         @include d-flex_center_center;
 
         position: fixed;
-        top: 0;
+        top: 0; 
         right: 0;
         bottom: 0;
         left: 0;
 
         .app_modal {
             background-color: white;
-            width: 70%;
+            width: 840px;
             text-align: center;
 
             .modal_title {
@@ -114,11 +127,35 @@
                 .modal_close-icon {
                     color: $primary_color;
                     font-size: 1.4rem;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
                 }
             }
 
             figure {
-                margin: 0;               
+                margin: 0;     
+                position: relative;
+                
+                .arrow {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+
+                    &.arrowNext {                        
+                        right: 10px;
+                    }
+
+                    &.arrowPrev {
+                        left: 10px;
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+                        color: $primary-color;
+                    }
+                }
             }
             
             .card {

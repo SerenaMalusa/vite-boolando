@@ -1,22 +1,24 @@
 <script>
     
     // import API url and product list form the golbal state
-    import { apiUri, productList } from '../store';
+    import { apiUri, productList, modal } from '../store';
     // import Axios
     import axios from 'axios';
     // import components
     import AppCard from './AppCard.vue';
+    import AppModal from './AppModal.vue';
 
     export default {
         data () {
             return {
+                modal,
                 apiUri,
                 productList,
                 // products: [],
             }
         },
         // write the components so that they are ready to be used here
-        components: { AppCard },
+        components: { AppCard, AppModal },
         methods: {
             // function to get the products form the database
             fetchProducts() {
@@ -114,6 +116,9 @@
             
         </div>
     </div>
+
+    <!-- modal component -->
+   <app-modal v-if="modal.isVisible"/>
 
 </template>
 
