@@ -103,7 +103,7 @@
 
         <!-- this div is shown only if there are more than one badges and the type of the last one is 'discount' -->
         <div v-if="product.badges.length > 1 && product.badges[0].type !== 'discount'" class="tags">
-            <span  class="tag discount d-50">{{ product.badges.at(-1).value }}</span>
+            <span  class="tag discount d-50 me-1">{{ product.badges.at(-1).value }}</span>
             <span class="tag category sustainable">{{ product.badges[0].value }}</span>
         </div>
 
